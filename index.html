@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>HTML5 Audio</title>
+      <link rel="stylesheet" href="css/style.css">
+   </head>
+   <body>
+      <header>
+         <h1>HTML5 Audio</h1>
+         <p>Rendering Audio in a Browser According to<br>
+            One or More of a Browser’s Native Codecs</p>
+      </header>
+      <main>
+         <h2>Audio Player</h2>
+         <audio controls>
+            <source src="audio/audio.mp3" type='audio/mpeg; codecs="mp3"'>
+            <source src="audio/audio.ogg" type='audio/ogg; codecs="vorbis"'>
+            <source src="audio/audio.wav" type='audio/wav; codecs="1"'>
+            <source src="audio/audio.m4a" type='audio/mp4; codecs="mp4a.40.5"'>
+            <source src="audio/audio.aif" type='audio/aiff'>
+            <object width="200" height="20" type="application/x-shockwave-flash"
+                    data="flash-player/player_mp3_maxi.swf">
+               <param name="wmode" value="transparent">
+               <param name="movie" value="flash-player/player_mp3_maxi.swf">
+               <param name="FlashVars" value="mp3=audio/audio-in-flash.mp3">
+               <p>No Flash player can be rendered because
+                  Flash and/or JavaScript is not enabled or not supported.</p>
+            </object>
+            <p>No support found for HTML5 audio.</p>
+         </audio>
+
+         <p>When your browser encounters a list of <span class="teletype">&lt;source&gt;</span> tags inside the <span class="teletype"><span>&lt;</span>audio&gt;</span> element, it will attempt to use the first whose coder-decoder, or <abbr title="Coder-Decoder">codec</abbr>, it supports. (This assumes each <span class="teletype">&lt;source&gt;</span> points to a differently-encoded file.) If the browser supports many—or all—of the codecs in the list, it settles on the first. Consider the audio player above and the syntax that renders it below:</p>
+
+<pre>&lt;audio controls&gt;
+   &lt;source src="audio/audio.mp3" type='audio/mpeg; codecs="mp3"'&gt;
+   &lt;source src="audio/audio.ogg" type='audio/ogg; codecs="vorbis"'&gt;
+   &lt;source src="audio/audio.wav" type='audio/wav; codecs="1"'&gt;
+   &lt;source src="audio/audio.m4a" type='audio/mp4; codecs="mp4a.40.5"'&gt;
+   &lt;source src="audio/audio.aif" type='audio/aiff'&gt;
+   &lt;object width="200" height="20" type="application/x-shockwave-flash"
+           data="flash-player/player_mp3_maxi.swf"&gt;
+      &lt;param name="wmode" value="transparent"&gt;
+      &lt;param name="movie" value="flash-player/player_mp3_maxi.swf"&gt;
+      &lt;param name="FlashVars" value="mp3=audio/audio-in-flash.mp3"&gt;
+      &lt;p&gt;No Flash player can be rendered because Flash and/or JavaScript is
+         not enabled or not supported.&lt;/p&gt;
+   &lt;/object&gt;
+   &lt;p&gt;No support found for HTML5 audio.&lt;/p&gt;
+&lt;/audio&gt;</pre>
+
+         <p>The first file in the list, the <abbr title="Moving Picture Experts Group-1, Layer 3">MP3</abbr> file titled <span class="teletype">audio.mp3</span>, will be rendered if your browser supports its audio codec. The remaining <span class="teletype">&lt;source&gt;</span> elements are ignored. If your browser doesn’t support MP3, but does support Ogg Vorbis, or <abbr title="Ogg Vorbis">Ogg</abbr> for short, then Ogg is used, and, again, the remaining <span class="teletype">&lt;source&gt;</span> elements are ignored. This is repeated for every <span class="teletype">&lt;source&gt;</span> element down the list.</p>
+
+         <h3>Testing Various Codecs in Your Browser</h3>
+         <p>Your browser likely supports multiple audio codecs. You can test this by rearranging the order of <span class="teletype">&lt;source&gt;</span> elements in the code of this document so that different file types appear at the top of the <span class="teletype">&lt;source&gt;</span> list. For example, list the <span class="teletype">audio.<abbr title="Audio Interchange File">aif</abbr></span> file before the <span class="teletype">audio.mp3</span> file and test in Safari, then in Firefox. List the <span class="teletype">audio.ogg</span> file above them all, then test in all browsers. Et cetera. This will allow you to see—and hear—which browsers support which codecs.</p>
+
+         <aside>
+            <p><span>Note</span></p>
+            <p>The various 3- and 4-second audio files included in the <span class="teletype">audio</span> directory with this example have all been rendered using different codecs. Each file contains a spoken track stating which codec was used to encode it. For example, the file <span class="teletype">audio.mp3</span> says, <q>This audio encoded in MP3,</q> and the file <span class="teletype">audio.ogg</span> says, <q>This audio encoded in Ogg.</q> These samples are provided so you can test which browsers support which codecs.</p>
+         </aside>
+
+         <h2>Troubleshooting</h2>
+         <h3>HTML5 Audio Player Rendered But No Audio</h3>
+         <p>If a browser-based audio player is rendered when the page is loaded, but hitting the play button doesn’t generate audio, it means that either none of the <span class="teletype">&lt;source&gt;</span> elements contains a file whose codec is recognized by the browser or that you have a typo in your syntax.</p>
+
+         <h3>Difference Between HTML5 Audio Player and Flash Player</h3>
+         <p>If you’re unsure whether the audio player is the browser-generated player or the Flash-generated player, remove the <span class="teletype">controls</span> attribute from the <span class="teletype">&lt;audio&gt;</span> element. If doing so removes the player, then you’re looking at the browser-based player.</p>
+
+         <h2>Current Support for HTML5 Audio</h2>
+         <p>As of this writing (12 February 2015), MP3 is supported in all modern browsers. Testing was carried out in Firefox 35 (Mac and Windows 8.1), Firefox Developer Edition 37 (Mac and Windows 8.1), Chrome 40 (Mac and Windows 8.1), Opera 27 (Mac and Windows 8.1), Safari 5 (Windows 8.1), Safari 8 (Mac), and Internet Explorer 11 (Windows 8.1). This means that if you are doing web development with audio that only supported the latest browsers, you can use MP3 and take the following shortcut:</p>
+
+<pre>&lt;audio src="audio/audio.mp3" controls&gt;
+   &lt;p&gt;HTML5 audio is not supported.&lt;/p&gt;
+&lt;/audio&gt;</pre>
+
+         <p>Otherwise, you’ll need to go with some variant of the lengthy example in this tutorial in order to support different audio file types.</p>
+
+         <aside>
+            <p><span>Note</span></p>
+            <p>All the audio files in this example rely entirely on a browser’s ability to render audio natively using just <abbr title="Hypertext Markup Language">HTML</abbr>. However, your browser can handle audio via JavaScript, also, and, can do so with finer control. Consider using <a href="http://modernizr.com/">Modernizr</a>, a JavaScript library for HTML5, for more options when using audio in your HTML projects.</p>
+         </aside>
+
+         <h2>Make The Server Aware of Audio Types</h2>
+         <p>The server should be made aware of new audio formats using their <abbr title="Multipurpose Internet Mail Extension">MIME</abbr> types. This is done via <span class="teletype">AddType</span> directives and can be done at the server level using the server configuration file (<span class="teletype">httpd.conf</span>) or at the directory level, using a <span class="teletype">.htaccess</span> file. The former is advised, because the setup is done once by the server. Edit your <span class="teletype">httpd.conf</span> file and add the following to it, pointing the <span class="teletype">/path/to/folder/containing/this/project</span> on the first line to the path of your project.</p>
+<pre>&lt;Directory /path/to/folder/containing/this/project&gt;
+   AddType audio/ogg  oga ogg spx ogv
+   AddType audio/mp4  mp4 mp4v mpg4 m4v m4a aac
+   AddType audio/wav  wav
+   AddType audio/aiff aif aiff aifc
+   AddType audio/mpeg mpga mp2 mp2a mp3 m2a m3a
+   AddType audio/webm webma weba
+&lt;/Directory&gt;</pre>
+
+         <p>A quicker, easier, but slower way is to include all the <span class="teletype">AddType</span> directives to a <span class="teletype">.htaccess</span> file, then add the file to the directory serving your audio files. (This method is slower because the <span class="teletype">.htaccess</span> file is loaded each time a document from the folder containing a <span class="teletype">.htaccess</span> file is requested, and because the presence of a <span class="teletype">.htaccess</span> file triggers a recursive search for <span class="teletype">.htaccess</span> files down to the server’s root folder.) There’s a ready-made <span class="teletype">.htaccess</span> file in this example’s folder.</p>
+      </main>
+      <footer>
+         <p>Last updated: 12 February 2015</p>
+         <p>— Roy Vanegas</p>
+      </footer>
+   </body>
+</html>

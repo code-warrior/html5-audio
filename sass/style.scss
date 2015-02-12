@@ -1,0 +1,175 @@
+@import '_base';
+
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:300,300italic,700,700italic&subset=latin,latin-ext");
+@import url("http://fonts.googleapis.com/css?family=Inconsolata");
+
+$font-for-code: "Inconsolata", "Inconsolata-dz", monospace;
+$font-stack: "Open Sans", sans-serif;
+$background-color-main: #ddf;
+$color-headings: #48487F;
+$aside-dimension: 20px;
+$factor: 6.25;
+
+/**
+ * MAJOR BLOCK-LEVEL ELEMENTS
+ */
+body {
+   font: 1.44em / 1.6 $font-stack;
+   width: 960px;
+   padding: 0;
+   margin: 0 auto;
+   color: #444;
+}
+
+header {
+   background-color: $background-color-main;
+
+   h1 {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      padding-top: 20px;
+   }
+   p {
+      font-style: italic;
+      padding-top: 0;
+      margin-top: 0;
+      text-align: center;
+      padding-bottom: 30px;
+   }
+}
+
+footer {
+   font-size: .75em;
+   margin: 30px 0;
+}
+
+aside {
+   margin-top: 40px;
+   width: 900px;
+   left: 20px;
+   position: relative;
+   font-size: .85em;
+   background-color: lighten( $background-color-main, 3% );
+   padding: 20px;
+
+   p:first-of-type {
+      background-color: $background-color-main;
+      box-shadow: 10px 10px 10px #48487F;
+      color: $color-headings;
+      float: left;
+      font-size: 1.5em;
+      font-weight: bold;
+      height: $aside-dimension * $factor;
+      left: -30px;
+      margin: -10px 14px 0 -10px;
+      position: relative;
+      text-align: center;
+      text-transform: uppercase;
+      top: -30px;
+      width: $aside-dimension * $factor;
+
+      span {
+         line-height: $aside-dimension * $factor;
+      }
+   }
+   p:last-of-type {
+      margin-bottom: 0;
+   }
+   .teletype {
+      font-size: 1em $font-for-code;
+   }
+}
+
+audio {
+   background-color: $background-color-main;
+   float: left;
+   margin: 0 12px 0 0;
+   padding: 18px;
+   width: 400px;
+}
+
+p {
+   margin: 0 0 20px 0;
+}
+
+audio>object>param~p, audio>object+p {
+   color: red;
+}
+
+pre {
+   border-left: 3px solid $background-color-main;
+   font: .8em / 1.5 $font-for-code;
+   margin: 30px 0;
+   padding: 4px 0 4px 20px;
+}
+
+/**
+ * HEADINGS
+ */
+h1, h2, h3 {
+   color: $color-headings;
+   font-weight: bold;
+}
+
+h2, h3 {
+   margin: 30px 0 24px;
+}
+
+h1 {
+   font-size: 2em;
+   text-align: center;
+}
+
+h2 {
+   font-size: 1.4em;
+}
+
+h3 {
+   font-size: 1.1em;
+}
+
+/**
+ * INLINE ELEMENTS
+ */
+a {
+   color: darken( $color-headings, 20% );
+   font-style: italic;
+   text-decoration: none;
+   border-bottom: 1px dotted $color-headings;
+}
+
+abbr {
+   text-decoration: none;
+   padding-bottom: 3px;
+   border-bottom: 1px double darken( $background-color-main, 10% );
+   cursor: help;
+}
+
+em, i {
+   font-style: italic;
+}
+
+q {
+   font-style: italic;
+
+   &:before {
+      content: "“";
+   }
+
+   &:after {
+      content: "”";
+   }
+}
+
+/**
+ * CLASSES
+ */
+
+.teletype {
+   font: 1.05em $font-for-code;
+
+   span {
+      position: relative;
+      top: 2px;
+   }
+}

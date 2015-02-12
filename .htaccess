@@ -1,0 +1,6 @@
+AddType audio/ogg  oga ogg spx ogv
+AddType audio/mp4  mp4 mp4v mpg4 m4v m4a aac
+AddType audio/wav  wav
+AddType audio/aiff aif aiff aifc
+AddType audio/mpeg mpga mp2 mp2a mp3 m2a m3a
+AddType audio/webm webma weba
