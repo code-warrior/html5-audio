@@ -173,3 +173,93 @@ q {
       top: 2px;
    }
 }
+
+@media all and (max-width: 1024px) {
+   body, aside {
+      font-size: 1.3rem;
+      width: 90%;
+   }
+
+   pre {
+      font-size: 1.3rem;
+      white-space: pre-wrap;
+   }
+}
+
+@media all and (max-width: 900px) {
+   body, aside {
+      font-size: 1.2rem;
+   }
+
+   pre {
+      font-size: 1rem;
+   }
+}
+
+@media all and (max-width: 768px) {
+   body {
+      font-size: 1.1rem;
+      width: 90%;
+   }
+
+   aside {
+      margin: 0 auto;
+      width: 90%;
+      left: 0;
+      position: static;
+      font-size: 1rem;
+      padding: 14px;
+
+      p:first-of-type {
+         height: auto;
+         left: 0;
+         margin: 4px 20px 0 0;
+         position: static;
+         top: 0;
+      }
+   }
+
+   pre {
+      font-size: .9rem;
+   }
+}
+
+@media all and (max-width: 640px) {
+   body {
+      font-size: 1.1rem;
+      width: 96%;
+      padding: 0 2%;
+   }
+
+   pre {
+      white-space: pre-line;
+      font-size: 1rem;
+   }
+
+   aside {
+      width: 94%;
+   }
+}
+
+@media all and (max-width: 460px) {
+   audio {
+      float: none;
+      margin: 20px auto;
+      display: block;
+      padding: 0;
+      width: 300px;
+   }
+
+   pre {
+      font-size: .8rem;
+   }
+
+   h2:nth-of-type(4) {
+      +p {
+         span[class="teletype"] {
+            font-size: .85rem;
+         }
+      }
+   }
+}
+
