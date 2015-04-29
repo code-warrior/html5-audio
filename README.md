@@ -2,7 +2,7 @@
 
 ## HTML5 Audio Tutorial
 
-v0.1.0
+v0.1.1
 
 This is a tutorial on how audio works in an HTML5-compliant browser using *only* HTML—no JavaScript. It is assumed that the user has at least some rudimentary knowledge of HTML.
 
