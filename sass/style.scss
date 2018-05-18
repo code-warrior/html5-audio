@@ -14,11 +14,11 @@ $factor: 6.25;
  * MAJOR BLOCK-LEVEL ELEMENTS
  */
 body {
-   font: 1.44em / 1.6 $font-stack;
-   width: 960px;
-   padding: 0;
    margin: 0 auto;
+   padding: 0;
+   width: 960px;
    color: #444;
+   font: 1.44em / 1.6 $font-stack;
 }
 
 header {
@@ -26,70 +26,75 @@ header {
 
    h1 {
       margin-bottom: 0;
-      padding-bottom: 0;
       padding-top: 20px;
+      padding-bottom: 0;
    }
+
    p {
-      font-style: italic;
-      padding-top: 0;
       margin-top: 0;
-      text-align: center;
+      padding-top: 0;
       padding-bottom: 30px;
+      text-align: center;
+      font-style: italic;
    }
 }
 
 footer {
-   font-size: .75em;
    margin: 30px 0;
+   font-size: .75em;
 }
 
 aside {
-   margin-top: 40px;
-   width: 900px;
-   left: 20px;
    position: relative;
-   font-size: .85em;
-   background-color: lighten( $background-color-main, 3% );
+   left: 20px;
+   margin-top: 40px;
+   background-color: lighten($background-color-main, 3%);
    padding: 20px;
+   width: 900px;
+   font-size: .85em;
 
-   p:first-of-type {
-      background-color: $background-color-main;
-      box-shadow: 10px 10px 10px #48487F;
-      color: $color-headings;
-      float: left;
-      font-size: 1.5em;
-      font-weight: bold;
-      height: $aside-dimension * $factor;
-      left: -30px;
-      margin: -10px 14px 0 -10px;
-      position: relative;
-      text-align: center;
-      text-transform: uppercase;
-      top: -30px;
-      width: $aside-dimension * $factor;
+   p {
+      &:first-of-type {
+         position: relative;
+         top: -30px;
+         left: -30px;
+         float: left;
+         margin: -10px 14px 0 -10px;
+         box-shadow: 10px 10px 10px #48487F;
+         background-color: $background-color-main;
+         width: $aside-dimension * $factor;
+         height: $aside-dimension * $factor;
+         text-align: center;
+         text-transform: uppercase;
+         color: $color-headings;
+         font-size: 1.5em;
+         font-weight: bold;
 
-      span {
-         line-height: $aside-dimension * $factor;
+         span {
+            line-height: $aside-dimension * $factor;
+         }
+      }
+
+      &:last-of-type {
+         margin-bottom: 0;
       }
    }
-   p:last-of-type {
-      margin-bottom: 0;
-   }
+
    .teletype {
       font-size: 1em $font-for-code;
    }
 }
 
 audio {
-   background-color: $background-color-main;
    float: left;
    margin: 0 12px 0 0;
+   background-color: $background-color-main;
    padding: 18px;
    width: 400px;
 }
 
 p {
-   margin: 0 0 20px 0;
+   margin: 0 0 20px;
 }
 
 audio>object>param~p, audio>object+p {
@@ -97,27 +102,30 @@ audio>object>param~p, audio>object+p {
 }
 
 pre {
-   border-left: 3px solid $background-color-main;
-   font: .8em / 1.5 $font-for-code;
    margin: 30px 0;
+   border-left: 3px solid $background-color-main;
    padding: 4px 0 4px 20px;
+   font: .8em / 1.5 $font-for-code;
 }
 
 /**
  * HEADINGS
  */
-h1, h2, h3 {
+h1,
+h2,
+h3 {
    color: $color-headings;
    font-weight: bold;
 }
 
-h2, h3 {
+h2,
+h3 {
    margin: 30px 0 24px;
 }
 
 h1 {
-   font-size: 2em;
    text-align: center;
+   font-size: 2em;
 }
 
 h2 {
@@ -132,20 +140,21 @@ h3 {
  * INLINE ELEMENTS
  */
 a {
-   color: darken( $color-headings, 20% );
-   font-style: italic;
-   text-decoration: none;
    border-bottom: 1px dotted $color-headings;
+   text-decoration: none;
+   color: darken($color-headings, 20%);
+   font-style: italic;
 }
 
 abbr {
-   text-decoration: none;
-   padding-bottom: 3px;
-   border-bottom: 1px double darken( $background-color-main, 10% );
+   border-bottom: 1px double darken($background-color-main, 10%);
    cursor: help;
+   padding-bottom: 3px;
+   text-decoration: none;
 }
 
-em, i {
+em,
+i {
    font-style: italic;
 }
 
@@ -175,14 +184,15 @@ q {
 }
 
 @media all and (max-width: 1024px) {
-   body, aside {
-      font-size: 1.3rem;
+   body,
+   aside {
       width: 90%;
+      font-size: 1.3rem;
    }
 
    pre {
-      font-size: 1.3rem;
       white-space: pre-wrap;
+      font-size: 1.3rem;
    }
 }
 
@@ -198,24 +208,26 @@ q {
 
 @media all and (max-width: 768px) {
    body {
-      font-size: 1.1rem;
       width: 90%;
+      font-size: 1.1rem;
    }
 
    aside {
-      margin: 0 auto;
-      width: 90%;
-      left: 0;
       position: static;
-      font-size: 1rem;
+      left: 0;
+      margin: 0 auto;
       padding: 14px;
+      width: 90%;
+      font-size: 1rem;
 
-      p:first-of-type {
-         height: auto;
-         left: 0;
-         margin: 4px 20px 0 0;
-         position: static;
-         top: 0;
+      p {
+         &:first-of-type {
+            position: static;
+            top: 0;
+            left: 0;
+            margin: 4px 20px 0 0;
+            height: auto;
+         }
       }
    }
 
@@ -226,9 +238,9 @@ q {
 
 @media all and (max-width: 640px) {
    body {
-      font-size: 1.1rem;
-      width: 96%;
       padding: 0 2%;
+      width: 96%;
+      font-size: 1.1rem;
    }
 
    pre {
@@ -243,9 +255,9 @@ q {
 
 @media all and (max-width: 460px) {
    audio {
+      display: block;
       float: none;
       margin: 20px auto;
-      display: block;
       padding: 0;
       width: 300px;
    }
@@ -255,11 +267,12 @@ q {
    }
 
    h2:nth-of-type(4) {
-      +p {
-         span[class="teletype"] {
-            font-size: .85rem;
+      + p {
+         span {
+            &[class="teletype"] {
+               font-size: .85rem;
+            }
          }
       }
    }
 }
-
