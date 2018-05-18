@@ -1,23 +1,25 @@
-@import '_base';
+@import 'base';
 
-@import url("http://fonts.googleapis.com/css?family=Open+Sans:300,300italic,700,700italic&subset=latin,latin-ext");
-@import url("http://fonts.googleapis.com/css?family=Inconsolata");
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:300,300italic,700,700italic&subset=latin,latin-ext');
+@import url('http://fonts.googleapis.com/css?family=Inconsolata');
 
-$font-for-code: "Inconsolata", "Inconsolata-dz", monospace;
-$font-stack: "Open Sans", sans-serif;
+$font-for-code: 'Inconsolata', 'Inconsolata-dz', monospace;
+$font-stack: 'Open Sans', sans-serif;
 $background-color-main: #ddf;
-$color-headings: #48487F;
+$color-headings: #48487f;
+$color--text: #444;
+$color--error-text: #f00;
 $aside-dimension: 20px;
 $factor: 6.25;
 
-/**
- * MAJOR BLOCK-LEVEL ELEMENTS
- */
+///
+/// MAJOR BLOCK-LEVEL ELEMENTS
+///
 body {
    margin: 0 auto;
    padding: 0;
    width: 960px;
-   color: #444;
+   color: $color--text;
    font: 1.44em / 1.6 $font-stack;
 }
 
@@ -60,7 +62,7 @@ aside {
          left: -30px;
          float: left;
          margin: -10px 14px 0 -10px;
-         box-shadow: 10px 10px 10px #48487F;
+         box-shadow: 10px 10px 10px $color-headings;
          background-color: $background-color-main;
          width: $aside-dimension * $factor;
          height: $aside-dimension * $factor;
@@ -97,8 +99,9 @@ p {
    margin: 0 0 20px;
 }
 
-audio>object>param~p, audio>object+p {
-   color: red;
+audio > object > param ~ p,
+audio > object + p {
+   color: $color--error-text;
 }
 
 pre {
@@ -108,9 +111,9 @@ pre {
    font: .8em / 1.5 $font-for-code;
 }
 
-/**
- * HEADINGS
- */
+///
+/// HEADINGS
+///
 h1,
 h2,
 h3 {
@@ -136,9 +139,9 @@ h3 {
    font-size: 1.1em;
 }
 
-/**
- * INLINE ELEMENTS
- */
+///
+/// INLINE ELEMENTS
+///
 a {
    border-bottom: 1px dotted $color-headings;
    text-decoration: none;
@@ -161,18 +164,18 @@ i {
 q {
    font-style: italic;
 
-   &:before {
-      content: "“";
+   &::before {
+      content: '“';
    }
 
-   &:after {
-      content: "”";
+   &::after {
+      content: '”';
    }
 }
 
-/**
- * CLASSES
- */
+///
+/// CLASSES
+///
 
 .teletype {
    font: 1.05em $font-for-code;
@@ -197,7 +200,8 @@ q {
 }
 
 @media all and (max-width: 900px) {
-   body, aside {
+   body,
+   aside {
       font-size: 1.2rem;
    }
 
@@ -266,11 +270,13 @@ q {
       font-size: .8rem;
    }
 
-   h2:nth-of-type(4) {
-      + p {
-         span {
-            &[class="teletype"] {
-               font-size: .85rem;
+   h2 {
+      &:nth-of-type(4) {
+         + p {
+            span {
+               &[class='teletype'] {
+                  font-size: .85rem;
+               }
             }
          }
       }
